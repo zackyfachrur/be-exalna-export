@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  chat-service:
+    build:
+      context: ./chat-services  # Tentukan folder untuk build
+    container_name: chat-service
+    ports:
+      - "8001:8000"  # Mapping port (8000 di dalam container ke 8001 di host)
+    working_dir: /app
+    command: go run .  # Perintah untuk menjalankan aplikasi
+
+  auth-service:
+    build:
+      context: ./auth-services  # Tentukan folder untuk build
+    container_name: auth-service
+    ports:
+      - "8002:8000"  # Mapping port (8000 di dalam container ke 8002 di host)
+    working_dir: /app
+    command: go run .  # Perintah untuk menjalankan aplikasi

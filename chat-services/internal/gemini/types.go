@@ -12,5 +12,6 @@ type APIResponse struct {
 }
 
 type GeminiRequest struct {
+	UserID uint   `json:"user_id"`
 	Prompt string `json:"prompt"`
 }
