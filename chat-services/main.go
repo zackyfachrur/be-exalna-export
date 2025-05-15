@@ -1,14 +1,17 @@
 package main
 
 import (
-	"auth-services/models"
+	authmodels "auth-services/models" // Aliaskan agar tidak konflik
 	"bot-services/internal/gemini"
 	"bot-services/internal/models"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/joho/godotenv"
+
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+
 	"log"
 	"os"
 )
@@ -25,8 +28,8 @@ func main() {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
 
-	// Auto-migrate models
-	if err := db.AutoMigrate(&models.ChatLog{}, &models.User{}); err != nil {
+	// Auto-migrate ChatLog dari internal dan User dari auth-services
+	if err := db.AutoMigrate(&models.ChatLog{}, &authmodels.User{}); err != nil {
 		log.Fatalf("DB migration failed: %v", err)
 	}
 
@@ -63,8 +66,8 @@ func main() {
 			})
 		}
 
-		// Check if user exists
-		var user models.User
+		// Validasi user dari authmodels
+		var user authmodels.User
 		if err := db.First(&user, body.UserID).Error; err != nil {
 			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 				"success": false,
@@ -72,7 +75,7 @@ func main() {
 			})
 		}
 
-		// Get response from Gemini
+		// Proses ke Gemini
 		response, err := gClient.GetWebsiteServices(c.Context(), body.Prompt)
 		if err != nil {
 			return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
@@ -81,7 +84,7 @@ func main() {
 			})
 		}
 
-		// Save chat log
+		// Simpan hasil ke database
 		chatLog := models.ChatLog{
 			UserID:   body.UserID,
 			Prompt:   body.Prompt,
