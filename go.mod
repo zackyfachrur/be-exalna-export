@@ -5,7 +5,6 @@ go 1.23.0
 toolchain go1.23.9
 
 require (
-	github.com/cloudinary/cloudinary-go/v2 v2.10.0
 	github.com/gofiber/fiber/v2 v2.52.6
 	github.com/google/generative-ai-go v0.20.1
 	github.com/joho/godotenv v1.5.1
@@ -23,7 +22,6 @@ require (
 	cloud.google.com/go/compute/metadata v0.6.0 // indirect
 	cloud.google.com/go/longrunning v0.5.7 // indirect
 	github.com/andybalholm/brotli v1.1.0 // indirect
-	github.com/creasty/defaults v1.7.0 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
 	github.com/go-logr/logr v1.4.2 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
@@ -32,7 +30,6 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.3.6 // indirect
 	github.com/googleapis/gax-go/v2 v2.14.1 // indirect
-	github.com/gorilla/schema v1.4.1 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/klauspost/compress v1.17.9 // indirect
