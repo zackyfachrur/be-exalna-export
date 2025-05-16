@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	"auth-services/config"
-	"auth-services/models"
 	"github.com/gofiber/fiber/v2"
+	"github.com/zackyfachrur/be-exalna-export/auth-services/config"
+	"github.com/zackyfachrur/be-exalna-export/auth-services/models"
 	"golang.org/x/crypto/bcrypt"
 )
 

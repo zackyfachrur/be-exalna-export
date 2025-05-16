@@ -1,9 +1,9 @@
 package main
 
 import (
-	authmodels "auth-services/models" // Aliaskan agar tidak konflik
-	"bot-services/internal/gemini"
-	"bot-services/internal/models"
+	authmodels "github.com/zackyfachrur/be-exalna-export/auth-services/models"
+	"github.com/zackyfachrur/be-exalna-export/chat-services/internal/gemini"
+	"github.com/zackyfachrur/be-exalna-export/chat-services/internal/models"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -87,6 +87,7 @@ func main() {
 		// Simpan hasil ke database
 		chatLog := models.ChatLog{
 			UserID:   body.UserID,
+			Keyword:  body.Keyword,
 			Prompt:   body.Prompt,
 			Response: string(response),
 		}

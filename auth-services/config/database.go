@@ -9,7 +9,7 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 
-	"auth-services/models"
+	"github.com/zackyfachrur/be-exalna-export/auth-services/models"
 )
 
 var DB *gorm.DB

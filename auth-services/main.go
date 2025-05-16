@@ -1,10 +1,10 @@
 package main
 
 import (
-	"auth-services/config"
-	"auth-services/controllers"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/zackyfachrur/be-exalna-export/auth-services/config"
+	"github.com/zackyfachrur/be-exalna-export/auth-services/controllers"
 )
 
 func main() {
